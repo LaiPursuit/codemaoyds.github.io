@@ -1,0 +1,313 @@
+.work {
+    width: 912px;
+    height: 600px;
+    margin: auto;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.work-player {
+    width: 600px;
+    height: 496px;
+    float: left;
+}
+
+.work-player_button {
+    width: 100%;
+    height: 46px;
+    border-bottom: 1px solid hsla(0, 0%, 91%, 0.5);
+    background: #fff;
+}
+
+.work-player_button span {
+    width: 46px;
+    height: 46px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.work-player_button span i {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: 0;
+    right: 0;
+    width: 19px;
+    height: 19px;
+}
+
+.work-player_button .player_refresh i {
+    background: url(https://static.codemao.cn/community_frontend/asset/icon_sprite_1fd27.svg) no-repeat -269px -4px;
+}
+
+.work-player_button .player_full_screen i {
+    background: url(https://static.codemao.cn/community_frontend/asset/icon_sprite_1fd27.svg) no-repeat -295px -4px;
+}
+
+.work-player_button .player_full_screen {
+    float: right;
+}
+
+.work-information {
+    width: 311px;
+    height: 100%;
+    float: left;
+    border-left: 1px solid hsla(0, 0%, 91%, 0.5);
+}
+
+.work--account {
+    padding: 17px 47px 17px 85px;
+    position: relative;
+    background: #fff;
+}
+
+.work--account_avatar {
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    border-radius: 50%;
+    left: 15px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.work--account_name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    color: #333;
+    letter-spacing: 0;
+    font-weight: 500;
+    line-height: 25px;
+    display: inherit;
+    width: 126px;
+}
+
+.work--account_introduce {
+    width: 184px;
+    font-size: 14px;
+    color: #666;
+    height: 20px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.work--explain {
+    padding: 0 15px;
+    height: 500px;
+    font-size: 14px;
+}
+
+.work--explain .explain_choice {
+    padding: 10px;
+    height: 230px;
+}
+
+.work--explain .explain_choice h1 {
+    font-size: 15px;
+    position: relative;
+    padding: 0 0 5px 0;
+    border-bottom: 3px solid #eeeeee;
+}
+
+.work--explain .explain_choice h1 span {
+    padding: 0 0 5px 0;
+    border-bottom: 3px solid #1280ff;
+}
+
+.work--explain .choice {
+    margin-top: 10px;
+    line-height: 20px;
+    height: 190px;
+    overflow-y: auto;
+}
+.work-player-title{
+    padding: 10px;
+    border-right: 1px solid hsla(0, 0%, 91%, 0.5);
+}
+.work-player-title .dl-v{
+    width: 2px;
+    height: 10px;
+    background-color: #666;
+    display: inline-block;
+    margin: 0 10px ;
+}
+.work-player-title h1 {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: 0;
+    line-height: 33px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 77%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 400;
+}
+
+.work-player-title p {
+    font-size: 15px;
+    color: #999;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+#player {
+    width: 600px;
+    height: 450px;
+}
+
+hr {
+    height: 2px;
+    border-radius: 2px;
+    background: #ddd;
+    margin: auto;
+    border: none;
+}
+
+.full_screen iframe {
+    position: fixed;
+    width: 100% !important;
+    top: 0;
+    left: 0;
+    height: 100% !important;
+    z-index: 10;
+}
+
+.full_screen .work-player_button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 11;
+}
+
+.c-comment-c-comment_item--comment_item {
+    width: 100%;
+    position: relative;
+}
+.c-comment-c-comment_item--user_face {
+    float: left;
+    margin: 20px 0 0;
+    position: relative;
+}
+.c-comment-c-comment_item--user_face .c-comment-c-comment_item--user_head {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: #eee;
+    background-position: 50%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.c-comment-c-comment_item--content_container {
+    position: relative;
+    margin-left: 74px;
+    margin-right: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid hsla(0,0%,91%,.5);
+}
+.c-comment-c-comment_item--content_container .c-comment-c-comment_item--author .c-comment-c-comment_item--author_link {
+    font-size: 14px;
+    color: #4d70a5;
+    cursor: pointer;
+}
+.c-comment-c-comment_item--work_link {
+    max-width: 100px;
+    height: 18px;
+    background: #fff;
+    border-radius: 9px;
+    border: 1px solid #f4d9c9;
+    display: inline-block;
+    vertical-align: sub;
+    padding-left: 19px;
+    padding-right: 3px;
+    position: relative;
+    margin-left: 4px;
+    cursor: pointer;
+}
+.c-comment-c-comment_item--content_container .c-comment-c-comment_item--author .c-comment-c-comment_item--work_link {
+    vertical-align: middle;
+}
+.c-comment-c-comment_item--content_container .c-comment-c-comment_item--content {
+    font-size: 14px;
+    color: #333;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 5px 0 10px;
+}
+.c-comment-c-comment_item--content_container .c-comment-c-comment_item--content_bottom {
+    font-size: 12px;
+    color: #999;
+}
+.c-comment-c-comment_reply--reply_container {
+    width: 100%;
+    background: #f9f9f9;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item {
+    width: 100%;
+    position: relative;
+    padding-right: 20px;
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item .c-comment-c-comment_reply--user_face {
+    float: left;
+    margin: 16px 0 0 20px;
+    position: relative;
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item .c-comment-c-comment_reply--user_face .c-comment-c-comment_reply--user_head {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background-color: #eee;
+    background-position: 50%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item .c-comment-c-comment_reply--content_container {
+    position: relative;
+    margin-left: 83px;
+    margin-right: 0;
+    padding: 16px 0;
+    border-top: 0;
+    border-bottom: 1px solid hsla(0,0%,91%,.5);
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item .c-comment-c-comment_reply--content_container .c-comment-c-comment_reply--author {
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+    margin: 0 0 6px;
+    padding-right: 30px;
+    position: relative;
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item .c-comment-c-comment_reply--content_container .c-comment-c-comment_reply--author .c-comment-c-comment_reply--author_link {
+    font-size: 14px;
+    color: #4d70a5;
+    cursor: pointer;
+}
+.c-comment-c-comment_reply--reply_container .c-comment-c-comment_reply--reply_item .c-comment-c-comment_reply--content_container .c-comment-c-comment_reply--content_bottom {
+    font-size: 12px;
+    color: #999;
+}

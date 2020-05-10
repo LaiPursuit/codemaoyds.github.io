@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}-编程猫跃动工作室官网</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/all.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.ico') }}" type="icon">
+    <script src="{{ url_for('static',filename='js/jQuery.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/all.js') }}"></script>
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+    <div id="loading">
+        <div class="l"></div>
+        <div class="l l2"></div>
+        <div class="l l3"></div>
+    </div>
+    <div class="nav">
+        <div style="width:90%;display:inline-block">
+            <a href="/">
+                <img src="https://static.codemao.cn/community/shequ_logo.png" class="logo" alt="logo" />
+            </a>
+            <ul class="nav_ul">
+                <li>
+                    <a href="/">作品</a>
+                </li>
+                <li>
+                    <a href="/forum">论坛</a>
+                </li>
+                <li>
+                    <a href="/member">工作室成员</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <div class="content">
+        {% block main %}{% endblock %}
+    </div>
+</body>
+
+</html>

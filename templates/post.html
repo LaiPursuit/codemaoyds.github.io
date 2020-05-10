@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}作品{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/work.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/post.css')}}">
+{% endblock %}
+
+{% block main %}
+<div class="r-community-r-detail--forum_container">
+    <div class="r-community-r-detail--forum_title">{{post.title}}
+    </div>
+    <div class="r-community-r-detail--forum_info"><i class="r-community-r-detail--icon_view"></i>
+        {{post.n_views}}&nbsp;&nbsp;&nbsp;&nbsp;<i class="r-community-r-detail--icon_comment"></i> {{post.n_comments}}
+    </div>
+    <div class="r-community-r-detail--forum_user_info">
+        <div class="r-community-r-detail--user_face">
+            <div class="r-community-r-detail--user_head" style="background-image: url({{post.user.avatar_url}});">
+            </div>
+        </div>
+        <div class="r-community-r-detail--author"><a class="r-community-r-detail--author_link"
+                href="https://shequ.codemao.cn/user/{{post.user.id}}">{{post.user.nickname}}</a></div>
+        <p class="r-community-r-detail--publish_time">{{post.created_at}}</p>
+    </div>
+    <div class="r-community-r-detail--forum_content">
+        {{post.content}}
+    </div>
+    <div class="r-community-r-detail--forum_comments_container">
+        <p class="r-community-r-detail--comments_title">全部回帖: <span>{{post.n_replies}}</span></p>
+        <div class="c-comment--comment_list">
+            <!-- 懒得改了 -->
+            {% for postc in pc %}
+            <div class="c-comment-c-comment_item--comment_item">
+                <div class="c-comment-c-comment_item--user_face">
+                    <div class="c-comment-c-comment_item--user_head"
+                        style="background-image: url({{postc.user.avatar_url}});"></div>
+                </div>
+                <div class="c-comment-c-comment_item--content_container">
+                    <div class="c-comment-c-comment_item--author">
+                        <a href="https://shequ.codemao.cn/user/{{postc.user.id}}" target="_blank"
+                            class="c-comment-c-comment_item--author_link">{{postc.user.nickname}}</a>
+                    </div>
+                    <p class="c-comment-c-comment_item--content">{{postc.content}}</p>
+                    <p class="c-comment-c-comment_item--content_bottom">{{postc.created_at}}</p>
+                    <div class="c-comment-c-comment_reply--reply_container">
+                        {% for postcr in postc.earliest_comments %}
+                        <div class="c-comment-c-comment_reply--reply_list">
+                            <div class="c-comment-c-comment_reply--reply_item">
+                                <div class="c-comment-c-comment_reply--user_face">
+                                    <div class="c-comment-c-comment_reply--user_head"
+                                        style="background-image: url({{postcr.user.avatar_url}});">
+                                    </div>
+                                </div>
+                                <div class="c-comment-c-comment_reply--content_container">
+                                    <div class="c-comment-c-comment_reply--author"><a
+                                            href="https://shequ.codemao.cn/user/{{postcr.user.id}}" target="_blank"
+                                            class="c-comment-c-comment_reply--author_link">{{postcr.user.nickname}}</a>：<span>{{postcr.content}}</span>
+                                    </div>
+                                    <p class="c-comment-c-comment_reply--content_bottom">{{postcr.created_at}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="https://shequ.codemao.cn/community/{{post.id}}" class="more">前去编程猫查看更多评论回复</a>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".r-community-r-detail--forum_content").wait(function () {
+            $(this).html($(this).text());
+        })
+
+    })
+</script>
+{% endblock %}

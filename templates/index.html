@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}作品{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block main %}
+<div style="width:960px;position: relative;;margin:auto">
+    {% for work in works %}
+    <div class="works">
+        <a href="/work/{{work.id}}">
+            <div class="work_item">
+                <div class="work_img_wrap">
+                    <span class="work_img" style="background-image:url({{work.preview}});"></span>
+                    <span></span>
+                </div>
+                <div class="work_detail">
+                    <h5 class="work_name">{{work.name}}</h5>
+                    <ul class="datas">
+                        <li>
+                            <span class="icon icon_view"></span>
+                            <span class="num">{{work.view_times}}</span>
+                        </li>
+                        <li>
+                            <span class="icon icon_prise"></span>
+                            <span class="num">{{work.praise_times}}</span>
+                        </li>
+                    </ul>
+                    <div class="line"></div>
+                    <p class="author">
+                        <img src="{{work.user.avatar_url}}" class="author_head" />
+                        <a target="_blank"
+                            href="https://shequ.codemao.cn/user/{{work.user.id}}">{{work.user.nickname}}</a>
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+    <form action="" method="POST">
+        <input id="get" type="hidden" name="g" value="16">
+        <input style="color: #fff;" onclick="getwork()" type="submit" value="查看更多" class="get">
+    </form>
+    <script>
+        function getwork() {
+            var allwork = $(".works").length;
+            $("#get").attr("value", allwork + 16);
+        }
+    </script>
+</div>
+{% endblock %}

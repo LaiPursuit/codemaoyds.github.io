@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}工作室成员{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/member.css')}}">
+{% endblock %}
+
+{% block main %}
+<div style="width: 960px;margin: 50px auto;">
+    {% for member in members %}
+    <a href="https://shequ.codemao.cn/user/{{member.id}}">
+        <div class="r-work_shop-r-details--user_card">
+            <div class="r-work_shop-c-user_card--user_item">
+                <span class="r-work_shop-c-user_card"></span>
+                <div class="r-work_shop-c-user_card--avatar_cont">
+                    <div class="r-work_shop-c-user_card--avatar" style="background-image: url({{member.avatar_url}});">
+                    </div>
+                </div>
+                <p class="r-work_shop-c-user_card--nickname">{{member.name}}</p>
+            </div>
+        </div>
+    </a>
+    {% endfor %}</div>
+<script>
+    $(".r-work_shop-c-user_card").html("成员")
+    $(".r-work_shop-c-user_card").eq(0).addClass("headofroom")
+    $(".r-work_shop-c-user_card").eq(0).html("室长")
+    $(".r-work_shop-c-user_card").eq(1).addClass("administrators")
+    $(".r-work_shop-c-user_card").eq(1).html("副室长")
+</script>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}论坛{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/forum.css')}}">
+{% endblock %}
+
+{% block main %}
+<div style="padding: 10px 0;width: 70%;margin: 20px auto;background-color: #ffffff;border-radius: 10px;">
+    <p class="forum_t">全部帖子(<span>{{forums.total}}</span>)</p>
+    {% for forum in forums["items"] %}
+    <a class="forum_to" href="/post/{{forum.id}}">
+        <li class="c-post_list--post_body">
+            <div class="c-post_list--post_container">
+                <div class="c-post_list--post_header"><img src="{{forum.user.avatar_url}}" alt="头像"
+                        class="c-post_list--pointer"><span class="c-post_list--pointer">{{forum.user.nickname}}</span>
+                </div>
+                <div class="c-post_list--post_title">
+                    <h3 class="c-post_list--pointer">{{forum.title}}</h3>
+                </div>
+            </div>
+        </li>
+    </a>
+    {% endfor %}
+    <form action="" method="POST">
+        <input id="get" type="hidden" name="g" value="16">
+        <input onclick="getwork()" type="submit" value="查看更多" class="get">
+    </form>
+    <script>
+        function getwork() {
+            var allpost = $(".forum_to").length;
+            $("#get").attr("value", allpost + 10);
+        }
+    </script>
+</div>
+{% endblock %}

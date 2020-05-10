@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}作品{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('static',filename='css/work.css')}}">
+{% endblock %}
+
+{% block main %}
+<div class="work">
+    <div class="work-player">
+        <iframe src="{{'https://player.codemao.cn/old/w/'+work.id}}" id="player" frameborder="0"></iframe>
+        <div class="work-player_button">
+            <span class="player_refresh">
+                <i></i>
+            </span>
+            <span class="player_full_screen">
+                <i></i>
+            </span>
+        </div>
+        <div class="work-player-title">
+            <h1>{{work.work_name}}</h1>
+            <p><span>{{work.view_times}}</span>次浏览量<span class="dl-v"></span>更新于<span
+                    id="work_datetime">{{work.update_time}}</span><span
+                    class="dl-v"></span>点赞数:<span>{{work.praise_times}}</span><span
+                    class="dl-v"></span>收藏数:<span>{{work.collect_times}}</span><span
+                    class="dl-v"></span>购买数:<span>{{work.fork_times}}</span></p>
+        </div>
+    </div>
+    <div class="work-information">
+        <div class="work--account">
+            <a href="https://shequ.codemao.cn/user/{{work.user_info.id}}" target="_blank" class="work--account_avatar"
+                style="background-image: url({{work.user_info.avatar}});"></a>
+            <a href="https://shequ.codemao.cn/user/{{work.user_info.id}}" target="_blank" class="work--account_name">
+                {{work.user_info.nickname}}</a>
+            <p class="work--account_introduce">{{work.user_info.signature}}</p>
+        </div>
+        <hr />
+        <div class="work--explain">
+            <div class="explain_choice">
+                <h1><span>作品说明:</span></h1>
+                <div class="choice">{{work.work_introduction}}</div>
+            </div>
+            <div class="explain_choice">
+                <h1><span>操作说明:</span></h1>
+                <div class="choice">{{work.operation_description}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="c-comment--comment_list" style="margin:20px auto;width: 878px;padding: 20px;background-color: #ffffff;border-radius: 10px;">
+    {% for workc in wc %}
+    <div class="c-comment-c-comment_item--comment_item">
+        <div class="c-comment-c-comment_item--user_face">
+            <div class="c-comment-c-comment_item--user_head" style="background-image: url({{workc.user.avatar_url}});">
+            </div>
+        </div>
+        <div class="c-comment-c-comment_item--content_container">
+            <div class="c-comment-c-comment_item--author">
+                <a href="https://shequ.codemao.cn/user/{{workc.user.id}}" target="_blank"
+                    class="c-comment-c-comment_item--author_link">{{workc.user.nickname}}</a>
+            </div>
+            <p class="c-comment-c-comment_item--content">{{workc.content}}</p>
+            <p class="c-comment-c-comment_item--content_bottom">{{workc.created_at}}</p>
+            <div class="c-comment-c-comment_reply--reply_container">
+                {% for workcr in workc.earliest_comments %}
+                <div class="c-comment-c-comment_reply--reply_list">
+                    <div class="c-comment-c-comment_reply--reply_item">
+                        <div class="c-comment-c-comment_reply--user_face">
+                            <div class="c-comment-c-comment_reply--user_head"
+                                style="background-image: url({{workcr.user.avatar_url}});">
+                            </div>
+                        </div>
+                        <div class="c-comment-c-comment_reply--content_container">
+                            <div class="c-comment-c-comment_reply--author"><a
+                                    href="https://shequ.codemao.cn/user/{{workcr.user.id}}" target="_blank"
+                                    class="c-comment-c-comment_reply--author_link">{{workcr.user.nickname}}</a>：<span>{{workcr.content}}</span>
+                            </div>
+                            <p class="c-comment-c-comment_reply--content_bottom">{{workcr.created_at}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    <a href="https://shequ.codemao.cn/work/{{work.id}}" class="more">前去编程猫查看更多评论回复</a>
+</div>
+<script>
+    $(document).ready(function () {
+        $(".choice").wait(function () {
+            $(this).html($(this).text());
+        })
+    })
+</script>
+{% endblock %}
